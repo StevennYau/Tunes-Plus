@@ -5,14 +5,14 @@ import Spotify from 'spotify-web-api-js';
 const spotifyWebApi = new Spotify();
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const params = this.getHashParams();
     this.state ={
       loggedIn: params.access_token ? true: false,
       nowPlaying: {
-        name: 'Not Checked',
-        image: ''
+        name: 'Click the "Check Now Playing" button!',
+        image: 'noimage.png'
       }
     }
     if (params.access_token){
@@ -33,23 +33,42 @@ class App extends Component {
   getNowPlaying(){
     spotifyWebApi.getMyCurrentPlayingTrack()
       .then((response) => {
-        this.setState({
-          nowPlaying: {
-            name: response.item.name,
-            image: response.item.album.images[0].url
-          }
-        })
+        if (typeof response.item === 'undefined') {
+          this.setState({
+            nowPlaying: {
+              name: 'Please play a song first',
+              image: 'error.png'
+            }
+          })
+        } else {
+          this.setState({
+            nowPlaying: {
+              name: 'Now Playing: ' + response.item.name,
+              image: response.item.album.images[0].url
+            }
+          })
+        }
+        
       })
 
+  }
+
+  componentDidMount() {
+    console.log("in mount");
+    
   }
 
   render() {
     return (
       <div className="App">
-        <a href='http://localhost:8888'>
-          <button>Login With Spotify</button>
-        </a>
-        <div>Now Playing: { this.state.nowPlaying.name } </div>
+        <div>
+          {this.state.loggedIn===false &&
+            <a href='http://localhost:8888'>
+              <button>Login With Spotify</button>
+            </a>
+          }
+        </div>
+        <div>{ this.state.nowPlaying.name } </div>
         <div>
           <img src={ this.state.nowPlaying.image } alt='song' style={{ width: 100 }} />
         </div>
