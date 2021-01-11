@@ -5,7 +5,7 @@ export default class Genres extends Component {
     constructor(){
         super();
         this.state = {
-            genres: "not yet checked"
+            genres: []
         };
     }
 
@@ -26,6 +26,9 @@ export default class Genres extends Component {
         console.log("leaving genre updated");
     };
 
+
+    
+
     /*getGenre = () => {
         axios({
             method: "GET",
@@ -43,11 +46,14 @@ export default class Genres extends Component {
 
 
     render() {
-        console.log("in render");
         return (
             <div>
                 <button onClick={this.getGenre}>Get genres</button>
-                <h1> {this.state.genres}</h1>
+                <ol>
+                    {this.state.genres.map((item) =>(
+                        <li>{item}</li>
+                    ))}
+                </ol>
             </div>
         )
     }
