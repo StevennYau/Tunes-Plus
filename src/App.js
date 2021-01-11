@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
+import Genres from "./components/Genres"
 
 const spotifyWebApi = new Spotify();
 
@@ -19,6 +20,7 @@ class App extends Component {
       spotifyWebApi.setAccessToken(params.access_token)
     }
   }
+
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -30,32 +32,9 @@ class App extends Component {
     return hashParams;
   }
 
-  getNowPlaying(){
-    spotifyWebApi.getMyCurrentPlayingTrack()
-      .then((response) => {
-        if (typeof response.item === 'undefined') {
-          this.setState({
-            nowPlaying: {
-              name: 'Please play a song first',
-              image: 'error.png'
-            }
-          })
-        } else {
-          this.setState({
-            nowPlaying: {
-              name: 'Now Playing: ' + response.item.name,
-              image: response.item.album.images[0].url
-            }
-          })
-        }
-        
-      })
-
-  }
-
   componentDidMount() {
     console.log("in mount");
-    
+
   }
 
   render() {
@@ -68,16 +47,9 @@ class App extends Component {
             </a>
           }
         </div>
-        <div>{ this.state.nowPlaying.name } </div>
-        <div>
-          <img src={ this.state.nowPlaying.image } alt='song' style={{ width: 100 }} />
-        </div>
-        <button onClick={() => this.getNowPlaying()}>
-          Check Now Playing
-        </button>
+        <Genres />
       </div>  
     );
   }
 }
-
 export default App;
