@@ -1,46 +1,43 @@
 import React, { Component } from 'react'
 import axios from "axios";
 
-export default class Genres extends Component {
+export default class NewReleases extends Component {
     constructor(){
         super();
         this.state = {
-            genres: [],
+            releases: [],
             clicked: false
         };
     }
 
-    getGenre = () => {
-        console.log("in getGenre");
+    getNewReleases = () => {
         this.setState({
             clicked: true
         });
-        axios.get("/getGenre")
+        axios.get("/getNewReleases")
             .then(response => {
-                console.log("sucess reaching getGenreupdated, now recieved");
-                console.log(response);
+                console.log(response.data);
                 this.setState({
-                    genres: response.data
+                    releases: response.data
                 })
             })
             .catch(error => {
                 console.log("error is " + error);
                 return error;
             });
-        console.log("leaving genre updated");
     };
 
     render() {
         return (
             <div>
-                <button onClick={this.getGenre}>Get genres</button>
+                <button onClick={this.getNewReleases}>Get releases</button>
                 {this.state.clicked===true && 
                     <ol>
-                        {this.state.genres.map((item) =>(
-                            <li key={item}>{item}</li>
+                        {this.state.releases.map((release) =>(
+                            <li key={release}>{release}</li>
                         ))}
                     </ol>
-                 }
+                }
             </div>
         )
     }
