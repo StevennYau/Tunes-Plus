@@ -3,6 +3,7 @@ import './App.css';
 import Spotify from 'spotify-web-api-js';
 import Genres from "./components/Genres";
 import NewReleases from "./components/NewReleases";
+import Global50 from "./components/Global50";
 
 const spotifyWebApi = new Spotify();
 
@@ -38,8 +39,6 @@ class App extends Component {
 
   }
 
-  
-
   render() {
     return (
       <div className="App">
@@ -50,8 +49,9 @@ class App extends Component {
             </a>
           }
         </div>
-        <Genres />
+       <Genres />
        <NewReleases />
+       <Global50 />
       </div>  
     );
   }
