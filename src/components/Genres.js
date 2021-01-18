@@ -1,31 +1,22 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 import axios from "axios";
 
-export default class Genres extends Component {
-    constructor(){
-        super();
-        this.state = {
-            genres: [],
-            clicked: false
-        };
-    }
-
-    getGenre = () => {
+function Genres() {
+    const [genres, setGenres] = useState([]);
+    const [clicked, setClicked] = useState(false);
+ 
+    const getGenre = () => {
         console.log("in getGenre")  
-        this.setState(state => {
-            if (state.clicked === true) {
-               return { clicked: false };
-             } else {
-               return { clicked: true };
-            }
-          });
+        if (clicked === true) {
+            setClicked(false);
+            } else {
+            setClicked(true);
+        }
         axios.get("/getGenre")
             .then(response => {
                 console.log("sucess reaching getGenreupdated, now recieved");
                 console.log(response);
-                this.setState({
-                    genres: response.data
-                })
+                setGenres(response.data)
             })
             .catch(error => {
                 console.log("error is " + error);
@@ -34,21 +25,19 @@ export default class Genres extends Component {
         console.log("leaving genre updated");
     };
 
-
-    render() {
-        
         return (
             <div>
-                <button onClick={this.getGenre}>Get genres (toggle)</button>
-                {this.state.clicked === true && 
+                <button onClick={getGenre}>Get genres (toggle)</button>
+                {clicked === true && 
                     <ol className="center">
-                        {this.state.genres.map((item) =>(
+                        {genres.map((item) =>(
                             <li key={item}>{item}</li>
                         ))}
                     </ol>
                  }
             </div>
         )
-    }
+    
 } 
 
+  export default Genres;
