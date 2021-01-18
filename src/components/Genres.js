@@ -11,10 +11,14 @@ export default class Genres extends Component {
     }
 
     getGenre = () => {
-        console.log("in getGenre");
-        this.setState({
-            clicked: true
-        });
+        console.log("in getGenre")  
+        this.setState(state => {
+            if (state.clicked === true) {
+               return { clicked: false };
+             } else {
+               return { clicked: true };
+            }
+          });
         axios.get("/getGenre")
             .then(response => {
                 console.log("sucess reaching getGenreupdated, now recieved");
@@ -30,12 +34,14 @@ export default class Genres extends Component {
         console.log("leaving genre updated");
     };
 
+
     render() {
+        
         return (
             <div>
-                <button onClick={this.getGenre}>Get genres</button>
-                {this.state.clicked===true && 
-                    <ol>
+                <button onClick={this.getGenre}>Get genres (toggle)</button>
+                {this.state.clicked === true && 
+                    <ol className="center">
                         {this.state.genres.map((item) =>(
                             <li key={item}>{item}</li>
                         ))}

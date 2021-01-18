@@ -11,8 +11,12 @@ export default class NewReleases extends Component {
     }
 
     getNewReleases = () => {
-        this.setState({
-            clicked: true
+        this.setState(state => {
+            if (state.clicked === true) {
+               return { clicked: false };
+             } else {
+               return { clicked: true };
+            }
         });
         axios.get("/getNewReleases")
             .then(response => {
@@ -30,9 +34,9 @@ export default class NewReleases extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.getNewReleases}>Get releases</button>
+                <button onClick={this.getNewReleases}>Get releases (toggle)</button>
                 {this.state.clicked===true && 
-                    <ol>
+                    <ol className="center">
                         {this.state.releases.map((release) =>(
                             <li key={release}>{release}</li>
                         ))}

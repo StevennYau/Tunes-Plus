@@ -11,8 +11,12 @@ export default class Global50 extends Component {
     }
 
     getGlobal50 = () => {
-        this.setState({
-            clicked: true
+        this.setState(state => {
+            if (state.clicked === true) {
+               return { clicked: false };
+             } else {
+               return { clicked: true };
+            }
         });
         axios.get("/getGlobal50")
             .then(response => {
@@ -30,9 +34,9 @@ export default class Global50 extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.getGlobal50}>Get Global Top 50 Songs</button>
-                {this.state.clicked===true && 
-                    <ol>
+                <button onClick={this.getGlobal50}>Get Global Top 50 Songs (toggle)</button>
+                {this.state.clicked === true && 
+                    <ol className="center">
                         {this.state.songs.map((item) =>(
                             <li key={item}>{item}</li>
                         ))}
