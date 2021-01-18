@@ -58,7 +58,8 @@ useEffect(() => {
   
   return (
     <div>
-      <div className="container mt-2">
+      <div 
+      className="mt-2">
         <Router>
         <NavBar token={token} />
           <div className="App">

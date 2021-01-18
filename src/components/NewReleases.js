@@ -1,29 +1,20 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 import axios from "axios";
 
-export default class NewReleases extends Component {
-    constructor(){
-        super();
-        this.state = {
-            releases: [],
-            clicked: false
-        };
-    }
+function NewReleases() {
+    const [releases, setReleases] = useState([]);
+    const [clicked, setClicked] = useState(false);
 
-    getNewReleases = () => {
-        this.setState(state => {
-            if (state.clicked === true) {
-               return { clicked: false };
-             } else {
-               return { clicked: true };
-            }
-        });
+    const getNewReleases = () => {
+        if (clicked === true) {
+            setClicked(false);
+            } else {
+            setClicked(true);
+        }
         axios.get("/getNewReleases")
             .then(response => {
                 console.log(response.data);
-                this.setState({
-                    releases: response.data
-                })
+                setReleases(response.data);
             })
             .catch(error => {
                 console.log("error is " + error);
@@ -31,19 +22,18 @@ export default class NewReleases extends Component {
             });
     };
 
-    render() {
-        return (
-            <div>
-                <button onClick={this.getNewReleases}>Get releases (toggle)</button>
-                {this.state.clicked===true && 
-                    <ol className="center">
-                        {this.state.releases.map((release) =>(
-                            <li key={release}>{release}</li>
-                        ))}
-                    </ol>
-                }
-            </div>
-        )
-    }
+    return (
+        <div>
+            <button onClick={getNewReleases}>Get releases (toggle)</button>
+            {clicked===true && 
+                <ol className="center">
+                    {releases.map((release) =>(
+                        <li key={release}>{release}</li>
+                    ))}
+                </ol>
+            }
+        </div>
+    )
 } 
 
+export default NewReleases;

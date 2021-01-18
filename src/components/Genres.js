@@ -25,18 +25,18 @@ function Genres() {
         console.log("leaving genre updated");
     };
 
-        return (
-            <div>
-                <button onClick={getGenre}>Get genres (toggle)</button>
-                {clicked === true && 
-                    <ol className="center">
-                        {genres.map((item) =>(
-                            <li key={item}>{item}</li>
-                        ))}
-                    </ol>
-                 }
-            </div>
-        )
+    return (
+        <div>
+            <button onClick={getGenre}>Get genres (toggle)</button>
+            {clicked === true && 
+                <ol className="center">
+                    {genres.map((item) =>(
+                        <li key={item}>{item}</li>
+                    ))}
+                </ol>
+                }
+        </div>
+    )
     
 } 
 
