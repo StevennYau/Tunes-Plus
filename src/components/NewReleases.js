@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function NewReleases() {
+const NewReleases= ({ token }) => {
     const [releases, setReleases] = useState([]);
     const [clicked, setClicked] = useState(false);
 
@@ -25,6 +25,7 @@ function NewReleases() {
     return (
         <div>
             <button onClick={getNewReleases}>Get releases (toggle)</button>
+            <h1>token is {token}</h1>
             {clicked===true && 
                 <ol className="center">
                     {releases.map((release) =>(

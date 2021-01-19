@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function Genres() {
+const Genres = ({ token }) => {
     const [genres, setGenres] = useState([]);
     const [clicked, setClicked] = useState(false);
  
@@ -28,6 +28,7 @@ function Genres() {
     return (
         <div>
             <button onClick={getGenre}>Get genres (toggle)</button>
+            <h1>token is {token}</h1>
             {clicked === true && 
                 <ol className="center">
                     {genres.map((item) =>(

@@ -30,31 +30,6 @@ function App() {
   }
   return hashParams;
   }
-
-
-/* useEffect(() => {
-  console.log('in mount')
-  const userToken = localStorage.getItem('user-token');
-  if (userToken) {
-    setToken(userToken);
-  }
-}, []);
-
-
-useEffect(() => {
-  console.log('mount and update');
-  localStorage.setItem('user-token', token);
-});*/
-
-useEffect(() => {
-  const userToken = localStorage.getItem("user-token") 
-  setToken(userToken);
-}, [])
-
-useEffect(() => {
-  localStorage.setItem("user-token", token)
-}, [token])
-
   
   return (
     <div>
@@ -65,9 +40,9 @@ useEffect(() => {
           <div className="App">
             <Switch>
             <Route exact path ="/" render={(props) => <Home {...props} token={token} />} />
-            <Route exact path ="/genres" component={Genres} />
-            <Route exact path ="/newReleases" component={NewReleases} />
-            <Route exact path ="/topSongs" component={Global50} />
+            <Route exact path ="/genres" render={(props) => <Genres {...props} token={token} />} />
+            <Route exact path ="/newReleases" render={(props) => <NewReleases {...props} token={token} />} />
+            <Route exact path ="/topSongs" render={(props) => <Global50 {...props} token={token} />} />
             </Switch>
           </div>
         </Router>

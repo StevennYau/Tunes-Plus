@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function Global50() {
+const Global50 = ({ token }) => {
     const [songs, setSongs] = useState([]);
     const [clicked, setClicked] = useState(false);
 
@@ -25,6 +25,7 @@ function Global50() {
     return (
         <div>
             <button onClick={getGlobal50}>Get Global Top 50 Songs (toggle)</button>
+            <h1>token is {token}</h1>
             {clicked === true && 
                 <ol className="center">
                     {songs.map((item) =>(
