@@ -18,10 +18,6 @@ const Home = ({ token }) => {
                console.log("error is " + error);
                return error;
             });
-   //console.log(user.display_name);
-
-      
-      
    }, []);
    //0 is user info
    //1 is current song playing
@@ -41,12 +37,19 @@ const Home = ({ token }) => {
          <div>
             <div className="form-inline">
                <h1>Welcome to Tunes Plus {user[0]["display_name"]}!</h1>
-               <div>
-                  <img className="userPic" src={user[0]["images"][0]["url"]}  alt="user pfp"/>
-                  followers: {user[0].followers.total}
-               </div>
-               
-               <div>
+                  {typeof user[0]["images"][0] != 'undefined' && 
+                     <div>
+                     <img className="userPic" src={user[0]["images"][0]["url"]}  alt="user pfp"/>
+                        followers: {user[0].followers.total}
+                     </div>
+                  }
+                  {typeof user[0]["images"][0] == 'undefined' &&
+                     <div>
+                        <img className="defaultUserPic" src="noprofilepicture.png"  alt="user pfp"/>
+                        followers: {user[0].followers.total}
+                     </div>
+                  }
+            <div>
                   <h5>Current Song/ Most Recent Song:</h5>
                   {user[1]["item"] && 
                   <div>
@@ -59,15 +62,14 @@ const Home = ({ token }) => {
                   }
                </div>
             </div>
+
             <div>
                <h5>Top Songs</h5>
                <ol className="center">
                     {user[2].map((song, index) =>(
                        <div>
                           <li key={song.toString()}>{song}</li>
-                          {console.log(song)}
                        </div>
-                    
                     ))}
                 </ol>
             </div>
@@ -78,7 +80,6 @@ const Home = ({ token }) => {
                     {user[3].map((song, i) =>(
                        <div>
                           <li key={i.toString()} value={i}>{user[3][i]}</li>
-                          {console.log(i)}
                           <img alt={song} src={user[4][i]}/>
                        </div>
                     ))}
