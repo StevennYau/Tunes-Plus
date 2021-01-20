@@ -64,7 +64,7 @@ const Home = ({ token }) => {
             </div>
 
             <div>
-               <h5>Top Songs</h5>
+               <h5>Top 50 Songs</h5>
                <ol className="center">
                     {user[2].map((song, index) =>(
                        <div>
@@ -75,7 +75,7 @@ const Home = ({ token }) => {
             </div>
 
             <div>
-               <h5>Top Artists</h5>
+               <h5>Top 10 Artists</h5>
                <ol className="center form-inline">
                     {user[3].map((song, i) =>(
                        <div>
