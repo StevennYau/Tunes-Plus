@@ -43,6 +43,11 @@
   padding-right: 7px;
 }
 
+.userPic {
+  width:15%;
+  height:15%;
+}
+
 .logo {
   padding-left: 7px;
 }
