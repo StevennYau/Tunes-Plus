@@ -6,9 +6,8 @@ const NavBar= ({ token }) => {
    console.log('navbar token:' + token);
    return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-         
          <Link className="navbar-brand logo" to="/home">
-         <img className="pull-left" src="logo.png" /> 
+         <img className="pull-left" src="logo.png" alt="logo" /> 
          Tunes Plus</Link>
          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -31,7 +30,7 @@ const NavBar= ({ token }) => {
                </a>
             }
             {token !== '' &&
-               <a className="pull-right" href='#'>
+               <a className="pull-right" href='/logout'>
                 <button >Log Out</button>
                </a>
             }

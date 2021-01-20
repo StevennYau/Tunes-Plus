@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
@@ -12,7 +12,7 @@ const spotifyWebApi = new Spotify();
 
 function App() {
   const params = getHashParams();
-  const [token, setToken] = useState(params.access_token? params.access_token: '');
+  const [token] = useState(params.access_token? params.access_token: '');
 
   if (params.access_token){
     spotifyWebApi.setAccessToken(params.access_token)

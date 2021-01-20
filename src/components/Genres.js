@@ -4,7 +4,7 @@ import axios from "axios";
 const Genres = ({ token }) => {
     const [genres, setGenres] = useState([]);
     const [clicked, setClicked] = useState(false);
- 
+    
     const getGenre = () => {
         console.log("in getGenre")  
         if (clicked === true) {
@@ -12,7 +12,7 @@ const Genres = ({ token }) => {
             } else {
             setClicked(true);
         }
-        axios.get("/getGenre")
+        axios.get("/getGenre", {withCredentials: true})
             .then(response => {
                 console.log("sucess reaching getGenreupdated, now recieved");
                 console.log(response);
