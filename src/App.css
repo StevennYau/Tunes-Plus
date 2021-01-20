@@ -57,6 +57,14 @@
   padding-left: 7px;
 }
 
+.songImage {
+  display: block;
+  max-width:300px;
+  max-height:300px;
+  width:auto;
+  height:auto;
+}
+
 .artistImage {
   width:300px;
   height:300px;

@@ -24,6 +24,7 @@ const Home = ({ token }) => {
    //2 is top songs
    //3 is top artists
    //4 is top artist images
+   //5 is top song images
    if (user){
      console.log('user0 : ' + user[0]);
          console.log(user[0]);
@@ -65,10 +66,11 @@ const Home = ({ token }) => {
 
             <div>
                <h5>Your All Time Top Songs</h5>
-               <ol className="center">
+               <ol className="center form-inline">
                     {user[2].map((song, index) =>(
                        <div>
                           <li key={song.toString()}>{song}</li>
+                          <img className="songImage" alt={song} src={user[5][index]} />
                        </div>
                     ))}
                 </ol>
@@ -77,10 +79,10 @@ const Home = ({ token }) => {
             <div>
                <h5>Your Top 10 Artists</h5>
                <ol className="center form-inline">
-                    {user[3].map((song, i) =>(
+                    {user[3].map((artist, i) =>(
                        <div>
                           <li key={i.toString()}>{user[3][i]}</li>
-                          <img className="artistImage" alt={song} src={user[4][i]}/>
+                          <img className="artistImage" alt={artist} src={user[4][i]}/>
                        </div>
                     ))}
                 </ol>
