@@ -27,7 +27,6 @@ const Genres = ({ token }) => {
 
     return (
         <div className="app">
-            <h1>token is {token}</h1>
             <button onClick={getGenre}>Get genres (toggle)</button>
             
             {clicked === true && 

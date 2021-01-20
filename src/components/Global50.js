@@ -25,7 +25,6 @@ const Global50 = ({ token }) => {
     return (
         <div>
             <button onClick={getGlobal50}>Get Global Top 50 Songs (toggle)</button>
-            <h1>token is {token}</h1>
             {clicked === true && 
                 <ol className="center">
                     {songs.map((item) =>(

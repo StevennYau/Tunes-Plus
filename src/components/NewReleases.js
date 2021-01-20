@@ -25,7 +25,6 @@ const NewReleases= ({ token }) => {
     return (
         <div>
             <button onClick={getNewReleases}>Get releases (toggle)</button>
-            <h1>token is {token}</h1>
             {clicked===true && 
                 <ol className="center">
                     {releases.map((release) =>(

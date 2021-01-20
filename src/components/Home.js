@@ -32,7 +32,10 @@ const Home = ({ token }) => {
    } else {
    return (
       <div>
-         <h2>Welcome, {user}</h2>
+         <h2>Welcome to Tunes Plus {user}!</h2>
+         <div>
+            
+         </div>
       </div>
    )
    }
