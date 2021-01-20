@@ -17,7 +17,6 @@ function App() {
   if (params.access_token){
     spotifyWebApi.setAccessToken(params.access_token)
     console.log('spotfiy access token: ' + params.access_token);
-    
   }
 
   function getHashParams() {
@@ -39,7 +38,7 @@ function App() {
         <NavBar token={token} />
           <div className="App">
             <Switch>
-            <Route exact path ="/" render={(props) => <Home {...props} token={token} />} />
+            <Route exact path ="/home" render={(props) => <Home {...props} token={token} />} />
             <Route exact path ="/genres" render={(props) => <Genres {...props} token={token} />} />
             <Route exact path ="/newReleases" render={(props) => <NewReleases {...props} token={token} />} />
             <Route exact path ="/topSongs" render={(props) => <Global50 {...props} token={token} />} />

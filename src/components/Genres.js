@@ -26,9 +26,10 @@ const Genres = ({ token }) => {
     };
 
     return (
-        <div>
-            <button onClick={getGenre}>Get genres (toggle)</button>
+        <div className="app">
             <h1>token is {token}</h1>
+            <button onClick={getGenre}>Get genres (toggle)</button>
+            
             {clicked === true && 
                 <ol className="center">
                     {genres.map((item) =>(

@@ -37,6 +37,16 @@
   }
 }
 
+.logoPic {
+  width:3%;
+  height:2%;
+  padding-right: 7px;
+}
+
+.logo {
+  padding-left: 7px;
+}
+
 .center {
   text-align: center;
   list-style-position: inside;
@@ -45,3 +55,8 @@
 div, button {
   margin: 15px;
 }
+
+body { 
+  padding-top: 100px; 
+}
+
