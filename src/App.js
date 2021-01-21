@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
@@ -7,27 +7,35 @@ import NewReleases from "./components/NewReleases";
 import Global50 from "./components/Global50";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import Cookies from 'js-cookie';
 
 const spotifyWebApi = new Spotify();
 
 function App() {
+  
+  const [token, setToken] = useState('');
   const params = getHashParams();
-  const [token] = useState(params.access_token? params.access_token: '');
-
-  if (params.access_token){
-    spotifyWebApi.setAccessToken(params.access_token)
-  }
-
+ 
   function getHashParams() {
-  var hashParams = {};
-  var e, r = /([^&;=]+)=?([^&;]*)/g,
-      q = window.location.hash.substring(1);
-  // eslint-disable-next-line
-  while ( e = r.exec(q)) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-  }
-  return hashParams;
-  }
+    var hashParams = {};
+    var e, r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+    // eslint-disable-next-line
+    while ( e = r.exec(q)) {
+        hashParams[e[1]] = decodeURIComponent(e[2]);
+    }
+    return hashParams;
+    }
+
+  useEffect(() => {
+  
+    console.log("in app useeffect");
+    if (token === ''){
+      spotifyWebApi.setAccessToken(params.access_token);
+      setToken(Cookies.get('userToken'));
+      console.log('ACCESS TOKEN GOTTEN: ' + Cookies.get('userToken'));
+    }
+  }, [token, params.access_token]);
   
   console.log('app token: ' + token);
   return (

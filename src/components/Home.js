@@ -25,12 +25,12 @@ const Home = ({ token }) => {
    if (user){
       return (
          <div>
-            <div className="form-inline">
-               <h1>Welcome to Tunes Plus {user[0]["display_name"]}!</h1>
+            <div className="form-inline center1">
+               <h1>Welcome to Tunes Plus, {user[0]["display_name"]}!</h1>
                   {typeof user[0]["images"][0] != 'undefined' && 
                      <div>
                      <img className="userPic" src={user[0]["images"][0]["url"]}  alt="user pfp"/>
-                        followers: {user[0].followers.total}
+                        {/*followers: {user[0].followers.total}*/}
                      </div>
                   }
                   {typeof user[0]["images"][0] == 'undefined' &&
@@ -39,7 +39,7 @@ const Home = ({ token }) => {
                         followers: {user[0].followers.total}
                      </div>
                   }
-            <div>
+               <div>
                   <h5>Current Song/ Most Recent Song:</h5>
                   {user[1]["item"] && 
                   <div>

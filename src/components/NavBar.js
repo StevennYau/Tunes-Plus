@@ -1,20 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 
 const NavBar= ({ token }) => {
-
-   const [userToken, setToken] = useState('');
-
-   useEffect(()=>{
-      if(token === '') {
-         setToken('');
-      } else {
-         setToken(token);
-      }
-   }, [token])
-
-
-   console.log('navbar token:' + userToken);
+   
+   console.log('navbar token:' + token);
    return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
          <Link className="navbar-brand logo" to="/home">
@@ -35,16 +24,16 @@ const NavBar= ({ token }) => {
                <Link className="nav-link" to="/newReleases">New Releases <span className="sr-only">(current)</span></Link>
                </li>
             </ul>
-            {token === '' &&
+            {typeof token == 'undefined' &&
                <a className="pull-right" href='http://localhost:5000/login'>
                 <button>Login With Spotify</button>
                </a>
             }
-            {token !== '' &&
+            {typeof token != 'undefined' &&
                <a className="pull-right" href='/logout'>
                 <button >Log Out</button>
                </a>
-            }
+            } 
             {/*<form className="form-inline my-2 my-lg-0">
                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
