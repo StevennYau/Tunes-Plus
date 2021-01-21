@@ -11,10 +11,10 @@ const NavBar= ({ token }) => {
       } else {
          setToken(token);
       }
-   })
+   }, [token])
 
 
-   console.log('navbar token:' + token);
+   console.log('navbar token:' + userToken);
    return (
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
          <Link className="navbar-brand logo" to="/home">

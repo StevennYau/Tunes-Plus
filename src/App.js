@@ -29,6 +29,7 @@ function App() {
   return hashParams;
   }
   
+  console.log('app token: ' + token);
   return (
     <div>
       <div 

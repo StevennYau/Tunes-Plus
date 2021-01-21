@@ -59,11 +59,18 @@
 
 .songImage {
   display: block;
-  max-width:300px;
-  max-height:300px;
+  max-width:292px;
+  max-height:292px;
   width:auto;
   height:auto;
 }
+.songText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 295px;
+}
+
 
 .artistImage {
   width:300px;

@@ -58,7 +58,7 @@ const Home = ({ token }) => {
                <ol className="center form-inline">
                     {user[2].map((song, index) =>(
                        <div>
-                          <li key={song.toString()}>{song}</li>
+                          <li className="songText" key={song.toString()}>{song}</li>
                           <img className="songImage" alt={song} src={user[5][index]} />
                        </div>
                     ))}
@@ -70,7 +70,7 @@ const Home = ({ token }) => {
                <ol className="center form-inline">
                     {user[3].map((artist, i) =>(
                        <div>
-                          <li key={i.toString()}>{user[3][i]}</li>
+                          <li className="songText" key={i.toString()}>{user[3][i]}</li>
                           <img className="artistImage" alt={artist} src={user[4][i]}/>
                        </div>
                     ))}
