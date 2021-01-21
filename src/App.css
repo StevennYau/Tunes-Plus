@@ -122,7 +122,7 @@ body {
   height:300px;
 }
 
-.GSongTest {
+.GSongText {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

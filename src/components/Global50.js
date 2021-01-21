@@ -40,7 +40,7 @@ const Global50 = ({ token }) => {
              <ol className="center form-inline">
                    {songs[0].map((song, index) =>(
                       <div>
-                         <li className="GSongTest" key={song.toString()}>{song}</li>
+                         <li className="GSongText" key={song.toString()}>{song}</li>
                          <img className="GSongImage" alt={song} src={songs[1][index]} />
                       </div>
                    ))}
