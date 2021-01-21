@@ -13,7 +13,6 @@ const Global50 = ({ token }) => {
         }
         axios.get("/getGlobal50")
             .then(response => {
-                console.log(response.data);
                 setSongs(response.data);
             })
             .catch(error => {

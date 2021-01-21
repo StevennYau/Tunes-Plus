@@ -6,7 +6,6 @@ const Genres = ({ token }) => {
     const [clicked, setClicked] = useState(false);
     
     const getGenre = () => {
-        console.log("in getGenre")  
         if (clicked === true) {
             setClicked(false);
             } else {
@@ -14,15 +13,12 @@ const Genres = ({ token }) => {
         }
         axios.get("/getGenre", {withCredentials: true})
             .then(response => {
-                console.log("sucess reaching getGenreupdated, now recieved");
-                console.log(response);
                 setGenres(response.data)
             })
             .catch(error => {
                 console.log("error is " + error);
                 return error;
             });
-        console.log("leaving genre updated");
     };
 
     return (

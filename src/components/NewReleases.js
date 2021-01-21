@@ -13,7 +13,6 @@ const NewReleases= ({ token }) => {
         }
         axios.get("/getNewReleases")
             .then(response => {
-                console.log(response.data);
                 setReleases(response.data);
             })
             .catch(error => {

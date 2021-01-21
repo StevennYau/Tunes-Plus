@@ -10,12 +10,9 @@ const Home = ({ token }) => {
    useEffect(() => {
       axios.get("/home")
             .then(response => {
-               console.log("sucess reaching home, now recieved");
-               console.log(response.data);
                setUser(response.data);
             })
             .catch(error => {
-               console.log("error is " + error);
                return error;
             });
    }, []);
@@ -26,14 +23,6 @@ const Home = ({ token }) => {
    //4 is top artist images
    //5 is top song images
    if (user){
-     console.log('user0 : ' + user[0]);
-         console.log(user[0]);
-         console.log('user1: ' + user[1]);
-         console.log(user[1]);
-         console.log('user2:' + user[2]);
-         console.log(user[2]);
-         console.log('user3: ');
-         console.log(user[3]);
       return (
          <div>
             <div className="form-inline">

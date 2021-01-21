@@ -16,7 +16,6 @@ function App() {
 
   if (params.access_token){
     spotifyWebApi.setAccessToken(params.access_token)
-    console.log('spotfiy access token: ' + params.access_token);
   }
 
   function getHashParams() {
