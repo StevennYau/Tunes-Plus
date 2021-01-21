@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Genres = ({ token }) => {
     const [genres, setGenres] = useState(null);
-    const [clicked, setClicked] = useState(false);
+    //const [clicked, setClicked] = useState(false);
     
     /*const getGenre = () => {
         if (clicked === true) {

@@ -116,3 +116,15 @@ body {
   text-overflow: ellipsis;
   max-width: 295px;
 }
+
+.GSongImage {
+  width:300px;
+  height:300px;
+}
+
+.GSongTest {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 295px;
+}
