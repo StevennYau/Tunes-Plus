@@ -67,11 +67,12 @@ const SearchTab = ({ token }) => {
     
     return (
       <div className="App">
+        <h1>Search for songs, albums or artists that you want to view!</h1>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <div className="Search">
           <Search
             placeholder="Type in any song, album, or artist you want to search!"
-            enterButton="Search"
+            //enterButton="Search"
             size="large"
             onChange={value => getSearchResults(value.target.value)}
             onSearch={value => console.log(value)}

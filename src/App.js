@@ -31,12 +31,11 @@ function App() {
   useEffect(() => {
   
     console.log("in app useeffect");
-    if (token === ''){
-      //spotifyWebApi.setAccessToken(params.access_token);
+    
       setToken(Cookies.get('userToken'));
       console.log('ACCESS TOKEN GOTTEN: ' + Cookies.get('userToken'));
-    }
-  }, [token]);
+    
+  }, []);
   
   console.log('app token: ' + token);
   return (
