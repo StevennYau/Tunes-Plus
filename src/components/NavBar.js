@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import cookies from 'js-cookie';
+//import cookies from 'js-cookie';
 
 const NavBar= ({ token }) => {
    
@@ -34,6 +34,9 @@ const NavBar= ({ token }) => {
                </li>
                <li className="nav-item active">
                <Link className="nav-link" to="/newReleases">New Releases <span className="sr-only">(current)</span></Link>
+               </li>
+               <li className="nav-item active">
+               <Link className="nav-link" to="/search">Search <span className="sr-only">(current)</span></Link>
                </li>
             </ul>
             {typeof token == 'undefined' &&

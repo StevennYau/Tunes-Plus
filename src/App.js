@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Spotify from 'spotify-web-api-js';
+//import Spotify from 'spotify-web-api-js';
 import Genres from "./components/Genres";
 import NewReleases from "./components/NewReleases";
 import Global50 from "./components/Global50";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Cookies from 'js-cookie';
+import Search from './components/Search';
 
 //const spotifyWebApi = new Spotify();
 
@@ -50,6 +51,7 @@ function App() {
             <Route exact path ="/genres" render={(props) => <Genres {...props} token={token} />} />
             <Route exact path ="/newReleases" render={(props) => <NewReleases {...props} token={token} />} />
             <Route exact path ="/topSongs" render={(props) => <Global50 {...props} token={token} />} />
+            <Route exact path ="/search" render={(props) => <Search {...props} token={token} />} />
             </Switch>
           </div>
         </Router>
