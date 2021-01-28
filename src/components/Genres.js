@@ -45,7 +45,7 @@ const Genres = ({ token }) => {
                       </div>
                    ))}
                    </ol>
-           </div>
+                   </div>
            {/*<button onClick={getGenre}>Get genres (toggle)</button>
            
            {clicked === true && 

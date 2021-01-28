@@ -40,7 +40,7 @@ const NavBar= ({ token }) => {
                </li>
             </ul>
             {typeof token == 'undefined' &&
-               <a className="pull-right" href='https://tunes-plus.herokuapp.com/login'>
+               <a className="pull-right" href='http://localhost:5000/login'>
                 <button>Login With Spotify</button>
                </a>
             }
@@ -57,6 +57,7 @@ const NavBar= ({ token }) => {
       </nav>
    );
 }
+
 
 export default NavBar;
 
