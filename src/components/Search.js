@@ -70,7 +70,7 @@ const SearchTab = ({ token }) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <div className="Search">
           <Search
-            placeholder="input search text"
+            placeholder="Type in any song, album, or artist you want to search!"
             enterButton="Search"
             size="large"
             onChange={value => getSearchResults(value.target.value)}
